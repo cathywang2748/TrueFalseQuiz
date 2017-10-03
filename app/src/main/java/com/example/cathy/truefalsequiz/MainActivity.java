@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button trueButton, falseButton, nextButton;
     private TextView questionText;
     private List<Question> questionBank;
+    private int questionOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +54,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         questionBank.add(new Question(getString(R.string.peel_question),false));
     }
 
+    public void setupNextQuestion()
+    {
+        questionOn++;
+        questionText.setText(questionBank.get(questionOn).getQuestionText());
+    }
 
+    public void checkAnswerTrueButton()
+    {
+        if(questionBank.get(questionOn).checkAnswer(true))
+        {
+            Toast.makeText(this, "Bravocado!!", Toast.LENGTH_SHORT).show();
+        }
+        else
+            Toast.makeText(this, "Sorry AvacaBro.", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void checkAnswerFalseButton()
+    {
+        if(questionBank.get(questionOn).checkAnswer(false))
+        {
+            Toast.makeText(this, "Bravocado!!", Toast.LENGTH_SHORT).show();
+        }
+        else
+            Toast.makeText(this, "Sorry AvocaBro.", Toast.LENGTH_SHORT).show();
+
+    }
 
     @Override
     public void onClick(View view)
     {
         switch (view.getId()) {
             //else if statements
-            case R.id.button_true:
+            case R.id.button_next:
+                setupNextQuestion();
+                trueButton.setEnabled(true);
+                falseButton.setEnabled(true);
+            break;
 
+            case R.id.button_true:
+                checkAnswerTrueButton();
+                trueButton.setEnabled(false);
+                falseButton.setEnabled(false);
+            break;
+
+            case R.id.button_false:
+                checkAnswerFalseButton();
+                trueButton.setEnabled(false);
+                falseButton.setEnabled(false);
+                break;
         }
     }
 }

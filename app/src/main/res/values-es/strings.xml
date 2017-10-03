@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">True False Quiz</string>
+    <string name="cut_question">Señor Aguacate respira, \'No te lastimaré.\'</string>
+    <string name="dip_question">Señor Aguacate exclama, \'¡Sumerge ese chip en mi!\'</string>
+    <string name="fruit_question">Aguacates son frutas</string>
+    <string name="nutritious_question">\"Aguacates son nutritivo\"</string>
+    <string name="peel_question">Señor Aguacate impulsa, \'¡me pele!\'</string>
+    <string name="pit_question">Señor Aguacate ronronea, \'Tengo una hueso grande\'</string>
+    <string name="ripe_question">\"El aguacate verde es listo\"</string>
+    <string name="text_false">Falso</string>
+    <string name="text_true">Cierto</string>
+</resources>
